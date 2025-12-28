@@ -132,7 +132,6 @@ document.addEventListener('DOMContentLoaded', () => {
           color: #00ffff;
           text-shadow: 0 0 30px rgba(0, 255, 255, 0.8);
           margin-bottom: 10px;
-          animation: pulse 2s infinite;
         }
 
         .dev-title {
@@ -236,11 +235,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         .spacer { flex-grow: 1; min-height: 80px; }
-
-        @keyframes pulse {
-          0%, 100% { transform: scale(1); }
-          50% { transform: scale(1.1); }
-        }
 
         @keyframes rotate {
           from { transform: rotate(0deg); }
