@@ -34,17 +34,16 @@
 
   function showRedirectMessage() {
     redirectText.innerHTML = `
-      Redirecting you to your link,
+      Đang chuyển hướng bạn đến link, hãy nhấn
       <a href="${decodeURIComponent(redirectUrl)}" rel="noreferrer">
-        click here
+        vào đây
       </a>
-      if it doesn't happen automatically
+      nếu nó không tự động chuyển hướng
     `;
 
     loading.classList.add("hidden");
     redirectMsg.classList.remove("hidden");
 
-    // Redirect sau khi hiện text 0.8s
     setTimeout(() => {
       location.href = decodeURIComponent(redirectUrl);
     }, 800);
@@ -56,7 +55,6 @@
     content.remove();
     loading.classList.remove("hidden");
 
-    // Spin 3 giây giống F95
     setTimeout(() => {
       if (!redirectUrl) {
         loading.classList.add("hidden");
@@ -71,7 +69,7 @@
       }
 
       showRedirectMessage();
-    }, 3000);
+    }, 3500);
   };
 
   humanBtn.onclick = () => {
