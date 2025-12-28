@@ -27,7 +27,7 @@
     errorBox.innerHTML = `
       <h3>${title}</h3>
       <p>${msg}</p>
-      <p><a href="./">&lt; Quay lại</a></p>
+      <p><a href="./" style="color: #a2a3a6;">&lt; Quay lại</a></p>
     `;
     errorBox.classList.remove("hidden");
   }
