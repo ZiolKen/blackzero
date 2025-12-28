@@ -46,7 +46,7 @@
 
     setTimeout(() => {
       location.href = decodeURIComponent(redirectUrl);
-    }, 800);
+    }, 500);
   }
 
   btn.onclick = () => {
@@ -69,12 +69,12 @@
       }
 
       showRedirectMessage();
-    }, 3500);
+    }, 2500);
   };
 
   humanBtn.onclick = () => {
     antibotBox.classList.add("hidden");
     loading.classList.remove("hidden");
 
-    setTimeout(showRedirectMessage, 3500);
+    setTimeout(showRedirectMessage, 2500);
   };
