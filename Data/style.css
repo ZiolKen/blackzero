@@ -447,7 +447,6 @@ input[type="radio"]:checked+label {
             border-radius: 16px;
             box-shadow: 0 8px 30px rgba(139, 69, 19, 0.15);
             margin: 0 auto;
-            position: relative;
             overflow: hidden;
             border: 2px solid #d2691e;
         }
@@ -456,7 +455,6 @@ input[type="radio"]:checked+label {
         .container-header {
             text-align: center;
             margin-bottom: 30px;
-            position: relative;
             padding-bottom: 20px;
         }
 
