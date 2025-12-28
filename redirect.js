@@ -1,4 +1,3 @@
-
   const params = new URLSearchParams(location.search);
   const redirectUrl = params.get("url");
 
@@ -17,13 +16,11 @@
   }
 
   btn.onclick = () => {
-    btn.disabled = true; // chống spam click
+    btn.disabled = true;
 
-    // Clear nội dung + show loading (giống F95)
     content.remove();
     loading.classList.remove("hidden");
 
-    // Delay nhẹ cho UX
     setTimeout(() => {
       if (!redirectUrl) {
         loading.classList.add("hidden");
