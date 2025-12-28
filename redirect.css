@@ -84,7 +84,7 @@ body {
 .actions {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 14px;
+  gap: 12px;
   justify-items: center;
   margin-top: 10px;
 }
