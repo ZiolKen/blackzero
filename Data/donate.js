@@ -152,7 +152,7 @@ class DonetSupporters {
         }).join('');
 
         return `
-            <div class="supporters-container">
+            <div class="supporters-container lq gl">
                 <div class="container-header">
                     <div class="header-icon">
                         <i class="fas fa-mug-hot"></i>
