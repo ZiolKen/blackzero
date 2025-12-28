@@ -133,7 +133,7 @@ class DonetSupporters {
             const positionClass = `position-${supporter.position <= 3 ? supporter.position : 'other'}`;
             
             return `
-                <li class="supporter-item" data-id="${supporter.id}">
+                <li class="supporter-item lq gl" data-id="${supporter.id}">
                     <div class="position ${positionClass}">${supporter.position}</div>
                     <img src="${supporter.avatar}" alt="${supporter.name}" class="avatar" />
                     <div class="supporter-info">
