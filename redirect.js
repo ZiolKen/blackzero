@@ -1,10 +1,26 @@
+
   const params = new URLSearchParams(location.search);
   const redirectUrl = params.get("url");
 
   const content = document.getElementById("card-content");
   const loading = document.getElementById("loading");
   const errorBox = document.getElementById("error");
+  const antibotBox = document.getElementById("antibot");
   const btn = document.getElementById("continueBtn");
+  const humanBtn = document.getElementById("humanBtn");
+
+  let interacted = false;
+
+  ["mousemove", "touchstart", "keydown"].forEach(e =>
+    window.addEventListener(e, () => interacted = true, { once: true })
+  );
+
+  function isBot() {
+    if (navigator.webdriver) return true;
+    if (!navigator.languages || navigator.languages.length === 0) return true;
+    if (!interacted) return true;
+    return false;
+  }
 
   function showError(title, msg) {
     errorBox.innerHTML = `
@@ -13,6 +29,15 @@
       <p><a href="./">&lt; Quay lại</a></p>
     `;
     errorBox.classList.remove("hidden");
+  }
+
+  function doRedirect() {
+    try {
+      location.href = decodeURIComponent(redirectUrl);
+    } catch {
+      loading.classList.add("hidden");
+      showError("Lỗi", "Không thể chuyển hướng.");
+    }
   }
 
   btn.onclick = () => {
@@ -24,15 +49,24 @@
     setTimeout(() => {
       if (!redirectUrl) {
         loading.classList.add("hidden");
-        showError("Lỗi", "Link chuyển hướng không hợp lệ.");
+        showError("Lỗi", "Link không hợp lệ.");
         return;
       }
 
-      try {
-        location.href = decodeURIComponent(redirectUrl);
-      } catch (e) {
+      // Antibot check
+      if (isBot()) {
         loading.classList.add("hidden");
-        showError("Lỗi", "Không thể chuyển hướng tới link này.");
+        antibotBox.classList.remove("hidden");
+        return;
       }
-    }, 600);
+
+      doRedirect();
+    }, 700);
+  };
+
+  humanBtn.onclick = () => {
+    antibotBox.classList.add("hidden");
+    loading.classList.remove("hidden");
+
+    setTimeout(doRedirect, 600);
   };
