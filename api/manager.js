@@ -31,27 +31,22 @@ function updateTypeUI() {
 
   const type = typeEl.value.trim().toLowerCase();
   const isLink = type === "link";
-  const isGame = type === "game";
 
   setFieldVisible("os", !isLink);
   setFieldVisible("version", !isLink);
   setFieldVisible("size", !isLink);
+  setFieldVisible("detailDesc", !isLink);
+  setFieldVisible("screenshots", !isLink);
 
   if (isLink) {
     const v = document.getElementById("version");
-    const s = document.getElementById("size");
-    if (v) v.value = "";
-    if (s) s.value = "";
-  }
-
-  setFieldVisible("detailDesc", isGame);
-  setFieldVisible("screenshots", isGame);
-
-  if (!isGame) {
+    const sz = document.getElementById("size");
     const d = document.getElementById("detailDesc");
-    const s = document.getElementById("screenshots");
+    const sc = document.getElementById("screenshots");
     if (d) d.value = "";
-    if (s) s.value = "";
+    if (sz) sz.value = "";
+    if (v) v.value = "";
+    if (sc) sc.value = "";
   }
 }
 
@@ -193,20 +188,21 @@ function normalizeApp(raw) {
     out[k] = v;
   }
   
-if ((out.type || "").toLowerCase() === "link") {
-  delete out.os;
-  delete out.version;
-  delete out.size;
-}
-if ((out.type || "").toLowerCase() === "game") {
-  if (raw.detailDesc) out.detailDesc = raw.detailDesc;
-  if (Array.isArray(raw.screenshots) && raw.screenshots.length) {
-    out.screenshots = raw.screenshots;
+  if ((out.type || "").toLowerCase() === "link") {
+    delete out.os;
+    delete out.version;
+    delete out.size;
   }
-} else {
-  delete out.detailDesc;
-  delete out.screenshots;
-}
+  
+  if ((out.type || "").toLowerCase() !== "link") {
+    if (raw.detailDesc) out.detailDesc = raw.detailDesc;
+    if (Array.isArray(raw.screenshots) && raw.screenshots.length) {
+      out.screenshots = raw.screenshots;
+    }
+  } else {
+    delete out.detailDesc;
+    delete out.screenshots;
+  }
 
   return out;
 }
@@ -650,6 +646,11 @@ async function loadSelectedIntoForm() {
 }
 
 async function updateSelectedFromForm() {
+  const detailDescVal = String(document.getElementById("detailDesc")?.value || "").trim();
+  const screenshotsVal = document.getElementById("screenshots")?.value
+    ?.split("\n")
+    .map(s => s.trim())
+    .filter(Boolean);
   const token = EDIT_TOKEN || getSelectedManageToken();
   if (!token) return alert("❌ Hãy chọn 1 item và bấm 'Load vào form để sửa' trước");
 
@@ -701,6 +702,18 @@ async function updateSelectedFromForm() {
     updated.os = osVal || updated.os || "iOS";
     if (verVal) updated.version = verVal; else delete updated.version;
     if (sizeVal) updated.size = sizeVal; else delete updated.size;
+  }
+  
+  if (String(updated.type || "").toLowerCase() !== "link") {
+    if (detailDescVal) updated.detailDesc = detailDescVal;
+    else delete updated.detailDesc;
+  
+    if (screenshotsVal && screenshotsVal.length)
+      updated.screenshots = screenshotsVal;
+    else delete updated.screenshots;
+  } else {
+    delete updated.detailDesc;
+    delete updated.screenshots;
   }
 
   parsed.apps[idx] = updated;
