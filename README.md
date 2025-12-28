@@ -6,7 +6,8 @@
 
 Tool, Utilities for iOS, Android. Game iOS, Android, PC.
 
-- https://chiuaquangz.pages.dev/
+- https://blackzero.pages.dev/
 - https://chiuaquangz.neocities.org/
+- https://ziolken.github.io/blackzero
 
 @ジオルケン | @ZiolKen
