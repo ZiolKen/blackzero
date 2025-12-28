@@ -82,7 +82,6 @@ class DonetSupporters {
     init() {
         if (this.initialized) return;
         
-        console.log("Initializing Donet Supporters...");
         this.setupDonetListeners();
         this.initialized = true;
     }
@@ -127,7 +126,6 @@ class DonetSupporters {
             // Thêm hiệu ứng
             this.addAnimations();
             
-            console.log("Donet page displayed");
         }, 500);
     }
 
