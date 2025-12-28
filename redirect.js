@@ -56,12 +56,6 @@
     loading.classList.remove("hidden");
 
     setTimeout(() => {
-      if (!redirectUrl) {
-        loading.classList.add("hidden");
-        showError("Chuyển hướng lỗi", "Link không hợp lệ");
-        return;
-      }
-
       if (isBot()) {
         loading.classList.add("hidden");
         antibotBox.classList.remove("hidden");
@@ -78,3 +72,7 @@
 
     setTimeout(showRedirectMessage, 1250);
   };
+  
+  if (!redirectUrl) {
+    window.location.replace("./");
+  }
