@@ -26,8 +26,6 @@ body {
 }
 
 .logo img {
-  max-width: 240px;
-  width: 70%;
   height: auto;
   max-width: 600px;
 }
