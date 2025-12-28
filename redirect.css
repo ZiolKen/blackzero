@@ -1,0 +1,83 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", system-ui, sans-serif;
+  background: linear-gradient(180deg, #0e0f11, #090a0c);
+  color: #e6e6e6;
+  height: 100vh;
+}
+
+.page {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.logo {
+  font-size: 48px;
+  font-weight: 800;
+  margin-bottom: 25px;
+  letter-spacing: 2px;
+}
+
+.logo .red {
+  color: #c23b3b;
+}
+
+.card {
+  width: 100%;
+  max-width: 460px;
+  background: #16181c;
+  border-radius: 10px;
+  padding: 30px 28px;
+  text-align: center;
+  box-shadow: 0 0 40px rgba(0,0,0,.6);
+}
+
+.card h2 {
+  margin: 0 0 14px;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.desc {
+  font-size: 14px;
+  line-height: 1.6;
+  opacity: .85;
+  margin-bottom: 22px;
+}
+
+.continue {
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+  font-weight: 600;
+  background: #2a2d33;
+  color: #fff;
+  border: 1px solid #2f333a;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all .2s ease;
+}
+
+.continue:hover {
+  background: #353942;
+}
+
+.back {
+  display: inline-block;
+  margin-top: 18px;
+  font-size: 14px;
+  color: #aaa;
+  text-decoration: none;
+}
+
+.back:hover {
+  color: #fff;
+}
