@@ -186,3 +186,20 @@ body {
 #antibot button:hover {
   background: #3d424a;
 }
+
+#redirect-msg {
+  text-align: center;
+}
+
+#redirect-msg h3 {
+  margin-bottom: 8px;
+}
+
+#redirect-msg a {
+  color: #ba4545;
+  text-decoration: none;
+}
+
+#redirect-msg a:hover {
+  text-decoration: underline;
+}
