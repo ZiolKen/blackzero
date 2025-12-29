@@ -102,41 +102,6 @@ body {
   to { transform: rotate(360deg); }
 }
 
-.verify-box {
-  text-align: center;
-}
-
-.verify-box h3 {
-  margin-bottom: 12px;
-}
-
-.verify-btn {
-  margin-top: 15px;
-  padding: 12px 20px;
-  background: #2a2d33;
-  border: 1px solid #333;
-  border-radius: 8px;
-  color: #fff;
-  cursor: pointer;
-}
-
-.verify-btn:hover {
-  background: #353942;
-}
-
-.hidden {
-  display: none;
-}
-
-#loading {
-  text-align: center;
-}
-
-#loading p {
-  margin-top: 10px;
-  color: #aaa;
-}
-
 .lds-ring {
   display: inline-block;
   width: 64px;
@@ -159,14 +124,6 @@ body {
 @keyframes lds-ring {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
-}
-
-#error h3 {
-  margin-bottom: 8px;
-}
-
-#error p {
-  color: #aaa;
 }
 
 #antibot {
