@@ -146,7 +146,7 @@ btn.onclick = ()=>{
 
     logRedirect();
     doRedirect();
-  }, 1000);
+  }, 1250);
 };
 
 humanBtn.onclick = ()=>{
@@ -156,5 +156,5 @@ humanBtn.onclick = ()=>{
   setTimeout(()=>{
     logRedirect();
     doRedirect();
-  }, 1000);
+  }, 1250);
 };
