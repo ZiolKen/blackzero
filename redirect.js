@@ -131,6 +131,11 @@ function doRedirect(){
 btn.onclick = ()=>{
   btn.disabled = true;
   card.remove();
+  if (isBot() || isRateLimited()){
+    loading.classList.add("hidden");
+    antibot.classList.remove("hidden");
+    return;
+  }
   loading.classList.remove("hidden");
 
   setTimeout(()=>{
@@ -139,21 +144,17 @@ btn.onclick = ()=>{
       return;
     }
 
-    if (isBot() || isRateLimited()){
-      loading.classList.add("hidden");
-      antibot.classList.remove("hidden");
-      return;
-    }
-
     logRedirect();
     doRedirect();
-  }, 500);
+  }, 1000);
 };
 
 humanBtn.onclick = ()=>{
   antibot.classList.add("hidden");
   loading.classList.remove("hidden");
   markTrusted();
-  logRedirect();
-  doRedirect();
+  setTimeout(()=>{
+    logRedirect();
+    doRedirect();
+  }, 1000);
 };
