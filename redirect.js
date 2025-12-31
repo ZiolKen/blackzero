@@ -87,11 +87,9 @@ function decodePayload(hash){
 
 /* ========= GOOGLEBOT SAFE ========= */
 if (isGoogleBot){
-  document.body.innerHTML = `
-    <h1>404</h1>
-    <p>Not found.</p>
-  `;
-  throw "Googlebot stop";
+  card.remove();
+  showError("404", "Not found");
+  throw "GOOGLEBOT STOP! DUDE?";
 }
 
 /* ========= GET URL ========= */
@@ -106,12 +104,15 @@ function showError(title,msg){
 
 /* ========= VALIDATE ========= */
 if (!safeUrl){
-  showError("Link không hợp lệ", "Liên kết không tồn tại hoặc đã hết hạn.");
+  card.remove();
+  showError("Link không hợp lệ", "Liên kết không tồn tại hoặc đã hết hạn");
   throw "Invalid link";
+  window.location.replace("./");
 }
 
 if (safeUrl === "expired"){
-  showError("Link đã hết hạn", "Liên kết này đã quá thời gian cho phép.");
+  card.remove();
+  showError("Link đã hết hạn", "Liên kết này đã quá thời gian cho phép");
   throw "Expired";
 }
 
