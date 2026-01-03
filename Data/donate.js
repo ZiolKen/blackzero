@@ -196,17 +196,11 @@ class DonetSupporters {
         const supporterItems = $('.supporter-item');
         
         supporterItems.each((index, item) => {
-            // Thêm hiệu ứng xuất hiện
             $(item).css({
-                'opacity': '0',
-                'transform': 'translateY(20px)'
             });
             
             setTimeout(() => {
                 $(item).css({
-                    'transition': 'all 0.5s ease',
-                    'opacity': '1',
-                    'transform': 'translateY(0)'
                 });
             }, index * 100);
         });
@@ -226,16 +220,12 @@ class DonetSupporters {
             function() {
                 $(this).css({
                     'transform': 'translateY(-3px)',
-                    'box-shadow': '0 8px 20px rgba(0, 0, 0, 0.12)',
-                    'border-color': '#d2691e',
                 });
                 $(this).find('.coffee-icon').addClass('animate-coffee');
             },
             function() {
                 $(this).css({
                     'transform': 'translateY(0)',
-                    'box-shadow': 'none',
-                    'border-color': 'transparent',
                 });
                 $(this).find('.coffee-icon').removeClass('animate-coffee');
             }
