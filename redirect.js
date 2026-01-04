@@ -107,7 +107,6 @@ if (!safeUrl){
   card.remove();
   showError("Link không hợp lệ", "Liên kết không tồn tại hoặc đã hết hạn");
   throw "Invalid link";
-  window.location.replace("./");
 }
 
 if (safeUrl === "expired"){
@@ -159,3 +158,7 @@ humanBtn.onclick = ()=>{
     doRedirect();
   }, 1250);
 };
+
+if (!safeUrl){
+  window.location.replace("./");
+}
